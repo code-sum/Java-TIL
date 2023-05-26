@@ -11,3 +11,5 @@
 - [5/23] 기반기술 | RWD, Protocol, Network, Server
 
 - [[5/24] SQL 작성](notes/0524_ANSI_SQL.md)
+
+- [[5/26] SQL 심화 - 통계쿼리 작성](notes/0526_SQL_advanced.md)
