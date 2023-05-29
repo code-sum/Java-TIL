@@ -5,6 +5,15 @@
 
 
 
+- Subquery 활용
+  - 인라인 뷰(Inline View) : FROM구에 넣은 SELECT문
+    - 이렇게 FROM구에 SELECT문을 활용하면, 가상의 테이블을 만드는 효과가 있음
+    - 가상 테이블을 만드는 방법은 **실행 속도를 3~5배 개선**
+  - 스칼라 서브쿼리(Scala Subquery) : SELECT구에 넣은 SELECT문
+    - 이 방법을 활용하고 싶다면, 인덱스를 잡아줘야 성능 문제가 발생하지 않음
+  - 서브쿼리(Subquery) : WHERE구에 넣은 SELECT문
+    - 이 방법은 서브쿼리에서 메인쿼리로 단 1건의 레코드만 전달할 때 활용
+
 ```sql
 -- PPT 22page
 
