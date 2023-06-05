@@ -8,6 +8,8 @@
 
 - [5/22] 프로젝트 | 프로젝트 생성, 구조, 개발 방법론, 산출물
 
+- [[5/23] 프로젝트 | 산출물](notes/0523_PROJECT.md)
+
 - [5/23] 기반기술 | RWD, Protocol, Network, Server
 
 - [[5/24] SQL 작성](notes/0524_ANSI_SQL.md)
