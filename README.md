@@ -15,3 +15,8 @@
 - [[5/24] SQL 작성](notes/0524_ANSI_SQL.md)
 
 - [[5/26] SQL 심화 - 통계쿼리 작성](notes/0526_SQL_advanced.md)
+
+
+
+- [[6/7] 프로젝트 환경세팅](notes/0607_SETTING.md)
+
