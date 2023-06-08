@@ -20,3 +20,4 @@
 
 - [[6/7] 프로젝트 환경세팅](notes/0607_SETTING.md)
 
+- [[6/8] SVN 활용법](notes/0608_SVN.md)
