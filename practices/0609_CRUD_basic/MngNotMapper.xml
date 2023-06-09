@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.happyjob.study.mngNot.dao.MngNotDao">
+
+	<!--  목록 조회 -->
+	<select id="noticelist" resultType="kr.happyjob.study.mngNot.model.NoticeModel">
+		/*kr.happyjob.study.mngNot.dao.MngNotDao.noticelist*/
+        select nt.notice_del_yn
+              ,nt.loginID
+              ,nt.notice_no              
+              ,nt.notice_title
+              ,nt.notice_date
+              ,nt.notice_cont
+              ,nt.file_no
+              ,fi.file_name
+              ,fi.logic_path
+              ,fi.physic_path
+              ,fi.file_size
+              ,fi.exten
+              ,ui.name
+          from tb_notice nt
+               inner join tb_userinfo ui on ui.loginID = nt.loginID
+               left outer join tb_file fi on fi.file_no = nt.file_no       
+		<where>
+		<if test="(delyn != null) and (!delyn.equals(''))">
+		    and nt.notice_del_yn = #{delyn}
+		</if>
+		<if test="(sname != null) and (!sname.equals(''))">
+				<choose>
+					<when
+						test="searchKey eq 'writer'.toString()">
+						and ui.name Like CONCAT('%', #{sname}, '%')
+					</when>
+					<when
+						test="searchKey eq 'title'.toString()">
+						and nt.notice_title LIKE CONCAT('%', #{sname}, '%')
+					</when>
+					<otherwise>
+						 and (   ui.name Like CONCAT('%', #{sname}, '%')
+						       or nt.notice_title LIKE CONCAT('%', #{sname}, '%')
+						       )
+					</otherwise>
+				</choose>
+			</if>		
+		</where>		
+		ORDER BY nt.notice_date DESC
+		LIMIT #{pageindex}, #{pageSize}
+		
+	</select>
+	
+	<!-- 목록 총 갯수 조회 -->
+	<select id="countnoticelist" resultType="int">
+		/*kr.happyjob.study.mngNot.dao.MngNotDao.countnoticelist*/
+		select count(*)
+          from tb_notice nt
+               inner join tb_userinfo ui on ui.loginID = nt.loginID
+               left outer join tb_file fi on fi.file_no = nt.file_no       
+		<where>
+		<if test="(delyn != null) and (!delyn.equals(''))">
+		    and nt.notice_del_yn = #{delyn}
+		</if>
+		<if test="(sname != null) and (!sname.equals(''))">
+				<choose>
+					<when
+						test="searchKey eq 'writer'.toString()">
+						and ui.name Like CONCAT('%', #{sname}, '%')
+					</when>
+					<when
+						test="searchKey eq 'title'.toString()">
+						and nt.notice_title LIKE CONCAT('%', #{sname}, '%')
+					</when>
+					<otherwise>
+						 and (   ui.name Like CONCAT('%', #{sname}, '%')
+						       or nt.notice_title LIKE CONCAT('%', #{sname}, '%')
+						       )
+					</otherwise>
+				</choose>
+			</if>		
+		</where>		
+	</select>
+	
+	<select id="noticeselectone" resultType="kr.happyjob.study.mngNot.model.NoticeModel">
+	       select nt.notice_del_yn
+              ,nt.loginID
+              ,nt.notice_no
+              ,nt.notice_title
+              ,nt.notice_date
+              ,nt.notice_cont
+              ,nt.file_no
+              ,fi.file_name
+              ,fi.logic_path
+              ,fi.physic_path
+              ,fi.file_size
+              ,fi.exten
+              ,ui.name
+          from tb_notice nt
+               inner join tb_userinfo ui on ui.loginID = nt.loginID
+               left outer join tb_file fi on fi.file_no = nt.file_no  
+        where nt.notice_no =  #{notice_no}               
+	</select>
+	
+	<insert id="noticeinsert">
+	    <selectKey resultType="int" keyProperty="no" order="BEFORE">
+            select ifnull(max(notice_no),0) + 1 from tb_notice
+        </selectKey>   
+	    insert into tb_notice
+	             (
+	                notice_no
+                  , notice_del_yn
+                  , loginID
+                  , notice_title
+                  , notice_cont
+                  , notice_date
+                  , file_no
+	             )
+	    values (
+	                #{no} 
+	               ,'N'
+	               ,#{loginid} 
+	               ,#{notice_title} 
+	               ,#{notice_cont} 
+	               ,now()
+	               ,0
+	    )
+	</insert>
+	
+	<update id="noticeupdate">
+	    update tb_notice
+	         set notice_title =  #{notice_title}   
+                , notice_cont =  #{notice_cont}   
+                , notice_date =  now()      
+	     where  notice_no =  #{notice_no}  
+	</update>
+	
+	<update id="noticedelete">
+	   update tb_notice
+	         set notice_del_yn =  'Y'
+	     where  notice_no =  #{notice_no}  
+	</update>
+	
+	<delete id="noticedeleteold">
+	    delete from tb_notice
+	    where  notice_no =  #{notice_no}  
+	</delete>
+</mapper>
