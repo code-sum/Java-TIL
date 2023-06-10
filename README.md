@@ -6,18 +6,28 @@
 
 
 
+## 1. Project INTRO
+
 - [5/22] 프로젝트 | 프로젝트 생성, 구조, 개발 방법론
 
 - [[5/23] 프로젝트 | 산출물](notes/0523_PROJECT.md)
 
 - [[5/23] 기반기술 | RWD, Protocol, Network, Server](notes/0523_BASE_TECH.md)
 
-- [[5/24] SQL 작성](notes/0524_ANSI_SQL.md)
-
-- [[5/26] SQL 심화 - 통계쿼리 작성](notes/0526_SQL_advanced.md)
 
 
+## 2. SQL
 
-- [[6/7] 프로젝트 환경세팅](notes/0607_SETTING.md)
+- [[5/24] SQL | 기본 쿼리문 작성](notes/0524_ANSI_SQL.md)
 
-- [[6/8] SVN 활용법](notes/0608_SVN.md)
+- [[5/26] SQL | (심화) 통계 쿼리문 작성](notes/0526_SQL_advanced.md)
+
+
+
+## 3. Implementation
+
+- [[6/7] eGovFramework | 환경세팅](notes/0607_SETTING.md)
+
+- [[6/8] eGovFramework | SVN 활용법](notes/0608_SVN.md)
+
+- [[6/9] eGovFramework | CRUD](notes/0609_CRUD.md)
