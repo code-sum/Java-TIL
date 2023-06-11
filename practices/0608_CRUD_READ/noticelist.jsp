@@ -41,21 +41,13 @@
 				case 'btnSearch' :
 					fn_noticelist();
 					break;
-				case 'btnSave' :
-					fn_save();
-					break;	
-				case 'btnDelete' :
-					$("#action").val("D");	
-					fn_save();
-					break;	
-				case 'btnClose' :
+				case 'btnCloseGrpCod' :
 				case 'btnCloseDtlCod' :
 					gfCloseModal();
 					break;
 			}
 		});
 	}
-	
 	
 	function fn_noticelist(pagenum) {
 		
@@ -84,124 +76,20 @@
 			 
 			$("#noticePagination").empty().append( paginationHtml );
 			
-			$("#pageno").val(pagenum);
+			
+			
 		}
 		
 		callAjax("/mngNot/noticelist.do", "post", "text", false, param, listcollabck) ;
-			
-	}
-	
-	function fn_openpopup() {
-		
-		popupinit();
-		
-		// 모달 팝업
-		gfModalPop("#layer1");
 		
 		
 	}
 	
-	function popupinit(object) {
-		
-		if(object == "" || object == null || object == undefined) {
-			$("#notice_title").val("");		
-			$("#notice_cont").val("");
-			$("#notice_no").val("");
-			
-			$("#btnDelete").hide();
-			
-			$("#action").val("I");	
-		} else {
-			$("#notice_title").val(object.notice_title);		
-			$("#notice_cont").val(object.notice_cont);
-			$("#notice_no").val(object.notice_no);
-			
-			$("#btnDelete").show();
-			
-			$("#action").val("U");	
-		}
-	}
-	
-	function fn_selectone(no) {
-		
-		//alert(no);
-		
-		var param = {
-				notice_no : no
-		}
-		
-		var selectoncallback = function(returndata) {			
-			console.log( JSON.stringify(returndata) );
-								
-			popupinit(returndata.noticesearch);
-			
-			// 모달 팝업
-			gfModalPop("#layer1");
-			
-		}
-		
-		callAjax("/mngNot/noticeselectone.do", "post", "json", false, param, selectoncallback) ;
-		
-	}
-	
-	function fn_save() {
-		
-		if ( ! fn_Validate() ) {
-			return;
-		}
-		
-		var param = {
-				action : $("#action").val(),
-				notice_no : $("#notice_no").val(),
-				notice_title : $("#notice_title").val(),
-				notice_cont : $("#notice_cont").val()
-		}
-		
-		var savecollback = function(reval) {
-			console.log( JSON.stringify(reval) );
-			
-			if(reval.returncval > 0) {
-				alert("저장 되었습니다.");
-				gfCloseModal();
-				
-				if($("#action").val() == "U") {
-					fn_noticelist($("#pageno").val());
-				} else {
-					fn_noticelist();
-				}
-			}  else {
-				alert("오류가 발생 되었습니다.");				
-			}
-		}
-		
-		//callAjax("/mngNot/noticesave.do", "post", "json", false, param, savecollback) ;
-		callAjax("/mngNot/noticesave.do", "post", "json", false, $("#myForm").serialize() , savecollback) ;
-		
-	}
-	
-	function fn_Validate() {
-
-		var chk = checkNotEmpty(
-				[
-						[ "notice_title", "제목을 입력해 주세요." ]
-					,	[ "notice_cont", "내용을 입력해 주세요" ]
-				]
-		);
-
-		if (!chk) {
-			return;
-		}
-
-		return true;
-	}
 </script>
 
 </head>
 <body>
 <form id="myForm" action=""  method="">
-	<input type="hidden" id="action"  name="action"  />
-	<input type="hidden" id="notice_no"  name="notice_no"  />
-	<input type="hidden" id="pageno"  name="pageno"  />
 	
 	<!-- 모달 배경 -->
 	<div id="mask"></div>
@@ -243,7 +131,7 @@
 							</select> 
 							<input type="text" style="width: 300px; height: 25px;" id="sname" name="sname">
 							<a href="" class="btnType blue" id="btnSearch" name="btn"><span>검  색</span></a>
-							 <a class="btnType blue" href="javascript:fn_openpopup();" name="modal"><span>신규등록</span></a>
+							 <a class="btnType blue" href="javascript:fPopModalComnGrpCod();" name="modal"><span>신규등록</span></a>
 							</span>
 						</p>
 						
@@ -302,25 +190,33 @@
 
 					<tbody>
 						<tr>
-							<th scope="row">제목 <span class="font_red">*</span></th>
-							<td colspan="3"><input type="text" class="inputTxt p100" name="notice_title" id="notice_title" /></td>
+							<th scope="row">그룹 코드 <span class="font_red">*</span></th>
+							<td><input type="text" class="inputTxt p100" name="grp_cod" id="grp_cod" /></td>
+							<th scope="row">그룹 코드 명 <span class="font_red">*</span></th>
+							<td><input type="text" class="inputTxt p100" name="grp_cod_nm" id="grp_cod_nm" /></td>
 						</tr>
 						<tr>
-							<th scope="row">내용 <span class="font_red">*</span></th>
-							<td colspan="3">
-							    <textarea id="notice_cont" name="notice_cont"> </textarea>
-							</td>
+							<th scope="row">코드 설명 <span class="font_red">*</span></th>
+							<td colspan="3"><input type="text" class="inputTxt p100"
+								name="grp_cod_eplti" id="grp_cod_eplti" /></td>
 						</tr>
 				
+						<tr>
+							<th scope="row">사용 유무 <span class="font_red">*</span></th>
+							<td colspan="3"><input type="radio" id="radio1-1"
+								name="grp_use_poa" id="grp_use_poa_1" value='Y' /> <label for="radio1-1">사용</label>
+								&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="radio1-2"
+								name="grp_use_poa" id="grp_use_poa_2" value="N" /> <label for="radio1-2">미사용</label></td>
+						</tr>
 					</tbody>
 				</table>
 
 				<!-- e : 여기에 내용입력 -->
 
 				<div class="btn_areaC mt30">
-					<a href="" class="btnType blue" id="btnSave" name="btn"><span>저장</span></a> 
-					<a href="" class="btnType blue" id="btnDelete" name="btn"><span>삭제</span></a> 
-					<a href=""	class="btnType gray"  id="btnClose" name="btn"><span>취소</span></a>
+					<a href="" class="btnType blue" id="btnSaveGrpCod" name="btn"><span>저장</span></a> 
+					<a href="" class="btnType blue" id="btnDeleteGrpCod" name="btn"><span>삭제</span></a> 
+					<a href=""	class="btnType gray"  id="btnCloseGrpCod" name="btn"><span>취소</span></a>
 				</div>
 			</dd>
 		</dl>

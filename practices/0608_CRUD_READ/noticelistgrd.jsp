@@ -13,7 +13,7 @@
 								<c:forEach items="${noticesearchlist}" var="list">
 									<tr>
 										<td>${list.notice_no}</td>
-										<td><a href="javascript:fn_selectone('${list.notice_no}')">${list.notice_title}</a></td>
+										<td><a href="javascript:fListComnDtlCod(1, ''${list.notice_no}')">${list.notice_title}</a></td>
 										<td>${list.notice_date}</td>
 										<td>${list.name}</td>
 										<td>${list.notice_del_yn}</td>

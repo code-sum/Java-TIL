@@ -30,4 +30,8 @@
 
 - [[6/8] eGovFramework | SVN 활용법](notes/0608_SVN.md)
 
-- [[6/9] eGovFramework | CRUD](notes/0609_CRUD.md)
+- [[6/8] eGovFramework | CRUD - READ](notes/0609_CRUD.md)
+
+- [[6/9] eGovFramework | CRUD - CREATE, UPDATE, DELETE](notes/0609_CRUD2.md)
+
+- [[6/12] eGovFramework | File CRUD](notes/0612_CRUD3.md)

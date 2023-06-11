@@ -36,25 +36,4 @@ public class MngNotServiceImpl implements MngNotService {
 		return mngNotDao.countnoticelist(paramMap);
 	}
 	
-	/** 한건 조회 */
-	public NoticeModel noticeselectone(Map<String, Object> paramMap) throws Exception {
-		
-		return mngNotDao.noticeselectone(paramMap);
-	}
-	
-	/** 등록 */
-	public int noticeinsert(Map<String, Object> paramMap) throws Exception {
-		return mngNotDao.noticeinsert(paramMap);
-	}
-	
-	/** 수정 */
-	public int noticeupdate(Map<String, Object> paramMap) throws Exception {
-		return mngNotDao.noticeupdate(paramMap);
-	}
-	
-	/** 삭제 */
-	public int noticedelete(Map<String, Object> paramMap) throws Exception {
-		return mngNotDao.noticedelete(paramMap);
-	}
-	
 }

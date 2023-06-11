@@ -79,58 +79,5 @@ public class MngNotController {
       return "mngNot/noticelistgrd";
    }
    
-   @RequestMapping("noticeselectone.do")
-   @ResponseBody
-   public Map<String, Object> noticeselectone(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
-         HttpServletResponse response, HttpSession session) throws Exception {
-      
-      logger.info("+ Start " + className + ".noticeselectone");
-      logger.info("   - paramMap : " + paramMap);
-      
-      // Controller  Service  Dao  SQL
-      NoticeModel noticesearch = mngNotService.noticeselectone(paramMap);
-      
-      Map<String, Object> returnmap = new HashMap<String, Object>();
-      
-      returnmap.put("noticesearch", noticesearch);
-      
-      logger.info("+ End " + className + ".noticeselectone");
-
-      return returnmap;
-   }   
-   
-   @RequestMapping("noticesave.do")
-   @ResponseBody
-   public Map<String, Object> noticesave(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
-         HttpServletResponse response, HttpSession session) throws Exception {
-      
-      logger.info("+ Start " + className + ".noticesave");
-      logger.info("   - paramMap : " + paramMap);
-      
-      String action = (String) paramMap.get("action");
-      
-      paramMap.put("loginid", (String) session.getAttribute("loginId"));
-      
-      
-      int returncval = 0;
-      
-      if("I".equals(action)) {
-    	  returncval = mngNotService.noticeinsert(paramMap);
-      } else if("U".equals(action)) {
-    	  returncval = mngNotService.noticeupdate(paramMap);
-      } else if("D".equals(action)) {
-    	  returncval = mngNotService.noticedelete(paramMap);
-      }      
-      
-      Map<String, Object> returnmap = new HashMap<String, Object>();
-      
-      returnmap.put("returncval", returncval);
-      
-      logger.info("+ End " + className + ".noticesave");
-
-      return returnmap;
-   }    
-   
-   
       
 }
