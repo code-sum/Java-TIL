@@ -24,13 +24,13 @@ public class MngNotServiceImpl implements MngNotService {
 	@Autowired
 	MngNotDao mngNotDao;
 	
-	/** 목록 조회 */
+	/**  공지사항 목록 조회  **/
 	public List<NoticeModel> noticelist(Map<String, Object> paramMap) throws Exception {
 		
 		return mngNotDao.noticelist(paramMap);
 	}
 	
-	/** 목록 카운트 조회 */
+	/**  공지사항 목록 카운트 조회  **/
 	public int countnoticelist(Map<String, Object> paramMap) throws Exception {
 				
 		return mngNotDao.countnoticelist(paramMap);

@@ -38,7 +38,7 @@ public class MngNotController {
    
    
    /**
-    * 초기화면
+    * 공지사항 초기화면
     */
    @RequestMapping("notice.do")
    public String notice(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
@@ -51,7 +51,10 @@ public class MngNotController {
 
       return "mngNot/noticelist";
    }
-       
+   
+   /**
+    * 공지사항 목록 조회 (READ)
+    */
    @RequestMapping("noticelist.do")
    public String noticelist(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
          HttpServletResponse response, HttpSession session) throws Exception {

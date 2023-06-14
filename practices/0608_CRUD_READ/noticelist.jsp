@@ -75,13 +75,10 @@
 			console.log("paginationHtml : " + paginationHtml);
 			 
 			$("#noticePagination").empty().append( paginationHtml );
-			
-			
-			
+				
 		}
 		
 		callAjax("/mngNot/noticelist.do", "post", "text", false, param, listcollabck) ;
-		
 		
 	}
 	

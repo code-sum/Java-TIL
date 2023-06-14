@@ -3,9 +3,9 @@
 
 <mapper namespace="kr.happyjob.study.mngNot.dao.MngNotDao">
 
-  <!-- 목록 조회 -->
+  <!-- 공지사항 목록 조회 -->
   <select id="noticelist" resultType="kr.happyjob.study.mngNot.model.NoticeModel">
-    /*kr.happyjob.study.mngNot.dao.MngNotDao.noticelist*/ select nt.notice_del_yn ,nt.loginID ,nt.notice_no ,nt.notice_title ,nt.notice_date ,nt.notice_cont ,nt.file_no ,fi.file_name ,fi.logic_path ,fi.physic_path ,fi.file_size ,fi.exten ,ui.name from tb_notice nt inner join tb_userinfo ui on ui.loginID = nt.loginID left outer join tb_file fi on fi.file_no = nt.file_no
+    select nt.notice_del_yn ,nt.loginID ,nt.notice_no ,nt.notice_title ,nt.notice_date ,nt.notice_cont ,nt.file_no ,fi.file_name ,fi.logic_path ,fi.physic_path ,fi.file_size ,fi.exten ,ui.name from tb_notice nt inner join tb_userinfo ui on ui.loginID = nt.loginID left outer join tb_file fi on fi.file_no = nt.file_no
     <where>
       <if test="(delyn != null) and (!delyn.equals(''))">
         and nt.notice_del_yn = #{delyn}
@@ -25,12 +25,11 @@
       </if>
     </where>
     ORDER BY nt.notice_date DESC LIMIT #{pageindex}, #{pageSize}
-
   </select>
 
-  <!-- 목록 총 갯수 조회 -->
+  <!-- 공지사항 목록 총 갯수 조회 -->
   <select id="countnoticelist" resultType="int">
-    /*kr.happyjob.study.mngNot.dao.MngNotDao.countnoticelist*/ select count(*) from tb_notice nt inner join tb_userinfo ui on ui.loginID = nt.loginID left outer join tb_file fi on fi.file_no = nt.file_no
+    select count(*) from tb_notice nt inner join tb_userinfo ui on ui.loginID = nt.loginID left outer join tb_file fi on fi.file_no = nt.file_no
     <where>
       <if test="(delyn != null) and (!delyn.equals(''))">
         and nt.notice_del_yn = #{delyn}

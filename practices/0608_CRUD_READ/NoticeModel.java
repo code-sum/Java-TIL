@@ -2,6 +2,22 @@ package kr.happyjob.study.mngNot.model;
 
 public class NoticeModel {
 
+	// 보통은 이렇게 private 을 위쪽에 입력하고,
+	private String notice_del_yn;
+	private String loginID;
+	private int notice_no;
+	private String notice_title;
+	private String notice_date;
+	private String notice_cont;
+	private int file_no;
+	private String file_name;
+	private String logic_path;
+	private String physic_path;
+	private int file_size;
+	private String exten;
+	private String name;
+
+	// Generate Getters and Setters... 작업 결과를 아래쪽에 입력
 	public String getNotice_del_yn() {
 		return notice_del_yn;
 	}
@@ -80,18 +96,5 @@ public class NoticeModel {
 	public void setName(String name) {
 		this.name = name;
 	}
-	private String notice_del_yn;
-	private String loginID;
-	private int notice_no;
-	private String notice_title;
-	private String notice_date;
-	private String notice_cont;
-	private int file_no;
-	private String file_name;
-	private String logic_path;
-	private String physic_path;
-	private int file_size;
-	private String exten;
-	private String name;
 	
 }
