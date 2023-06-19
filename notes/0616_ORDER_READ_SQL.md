@@ -113,3 +113,12 @@ SELECT od.order_no
       INNER JOIN tb_order od ON od.order_no = ll.order_no;  
 ```
 
+
+
+## 4. 주문 한건 조회 (수정)
+
+> 3. 주문 한건 조회 와 같이 작성하면 "Subquery returns more than 1 row." 에러가 발생하므로, 아래와 같이 수정할 것
+
+```sql
+```
+
