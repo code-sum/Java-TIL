@@ -120,5 +120,30 @@ SELECT od.order_no
 > 3. 주문 한건 조회 와 같이 작성하면 "Subquery returns more than 1 row." 에러가 발생하므로, 아래와 같이 수정할 것
 
 ```sql
+SELECT ot.order_no
+	  ,cl.clnt_name
+	  ,pd.product_no
+	  ,pd.product_name
+	  ,pd.product_price
+	  ,ot.order_dt_amt
+	  ,(pd.product_price*ot.order_dt_amt) AS detail_price
+	FROM tb_order_dt ot
+		 INNER JOIN tb_clnt cl ON ot.clnt_no = cl.clnt_no
+		 INNER JOIN tb_product pd ON ot.product_no = pd.product_no
+   WHERE ot.order_no = 1;  /* .xml 은 1 을 #{order_no} 로 수정 */
+```
+
+
+
+## 5. 주문 한건 카운트 조회
+
+> = 주문 상세 목록 카운트 조회
+
+```sql
+SELECT COUNT(*)
+	  FROM tb_order_dt ot
+		   INNER JOIN tb_clnt cl ON ot.clnt_no = cl.clnt_no
+		   INNER JOIN tb_product pd ON ot.product_no = pd.product_no
+	 WHERE ot.order_no = 1;  /* .xml 은 1 을 #{order_no} 로 수정 */
 ```
 
