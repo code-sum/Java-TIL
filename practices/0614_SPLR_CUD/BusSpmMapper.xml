@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.happyjob.study.busSpm.dao.BusSpmDao">
+
+	<!-- 납품기업 목록 조회 -->
+	<select id="splrlist" resultType="kr.happyjob.study.busSpm.model.SplrModel">
+		SELECT sp.splr_no
+	      ,sp.splr_name
+	      ,sp.splr_tel
+	      ,sp.splr_mng
+	      ,sp.splr_hp
+	      ,sp.splr_zip
+	      ,sp.bk_cd
+	      ,dc.detail_name AS bk_name
+	      ,sp.splr_acc
+	      ,sp.splr_add
+	      ,sp.splr_add_dt
+	      ,sp.splr_indst
+	      ,sp.splr_indst_no
+	      ,sp.splr_memo
+	      ,sp.splr_email
+		  FROM tb_splr sp
+		       INNER JOIN tb_detail_code dc ON dc.group_code = 'bk_cd' AND dc.detail_code = sp.bk_cd
+	    <where>
+	      <if test="(sname != null) and (!sname.equals(''))">
+	        <choose>
+	          <when test="searchKey eq 'sp_name'.toString()">
+	            and sp.splr_name Like CONCAT('%', #{sname}, '%')
+	          </when>
+	          <when test="searchKey eq 'sp_indst_no'.toString()">
+	            and sp.splr_indst_no LIKE CONCAT('%', #{sname}, '%')
+	          </when>
+	          <otherwise>
+	            and ( sp.splr_name Like CONCAT('%', #{sname}, '%') or sp.splr_indst_no LIKE CONCAT('%', #{sname}, '%') )
+	          </otherwise>
+	        </choose>
+	      </if>
+	    </where>
+	    ORDER BY sp.splr_no
+	    LIMIT #{pageindex}, #{pageSize}
+	</select>
+	
+	<!-- 납품기업 목록 조회 -->
+	<select id="countsplrlist" resultType="int">
+    	SELECT COUNT(*)
+		  FROM tb_splr sp
+		       INNER JOIN tb_detail_code dc ON dc.group_code = 'bk_cd' AND dc.detail_code = sp.bk_cd
+		<where>
+	      <if test="(sname != null) and (!sname.equals(''))">
+	        <choose>
+	          <when test="searchKey eq 'sp_name'.toString()">
+	            and sp.splr_name Like CONCAT('%', #{sname}, '%')
+	          </when>
+	          <when test="searchKey eq 'sp_indst_no'.toString()">
+	            and sp.splr_indst_no LIKE CONCAT('%', #{sname}, '%')
+	          </when>
+	          <otherwise>
+	            and ( sp.splr_name Like CONCAT('%', #{sname}, '%') or sp.splr_indst_no LIKE CONCAT('%', #{sname}, '%') )
+	          </otherwise>
+	        </choose>
+	      </if>
+	    </where>
+  	</select>
+  	
+  	<!-- 납품기업 한건 조회 -->
+  	<select id="splrselectone" resultType="kr.happyjob.study.busSpm.model.SplrModel">
+	    SELECT sp.splr_no
+	      ,sp.splr_name
+	      ,sp.splr_tel
+	      ,sp.splr_mng
+	      ,sp.splr_hp
+	      ,sp.splr_zip
+	      ,sp.bk_cd
+	      ,dc.detail_name AS bk_name
+	      ,sp.splr_acc
+	      ,sp.splr_add
+	      ,sp.splr_add_dt
+	      ,sp.splr_indst
+	      ,sp.splr_indst_no
+	      ,sp.splr_memo
+	      ,sp.splr_email
+		  FROM tb_splr sp
+		       INNER JOIN tb_detail_code dc ON dc.group_code = 'bk_cd' AND dc.detail_code = sp.bk_cd
+		 WHERE sp.splr_no =  #{splr_no}              
+	</select>
+	
+	<!-- 납품기업 등록 -->
+	<insert id="splrinsert">
+	    <selectKey resultType="int" keyProperty="no" order="BEFORE">
+	        SELECT ifnull(max(splr_no),0) + 1 FROM tb_splr
+	    </selectKey>   
+	    INSERT INTO tb_splr
+		    (
+		    splr_no
+		    ,splr_name
+		    ,splr_tel
+		    ,splr_mng
+		    ,splr_hp
+		    ,splr_zip
+		    ,bk_cd
+		    ,splr_acc
+		    ,splr_add
+		    ,splr_add_dt
+		    ,splr_indst
+		    ,splr_indst_no
+		    ,splr_memo
+		    ,splr_email
+		    )
+		   VALUES (
+		    #{no} 
+		    ,#{splr_name}
+		    ,#{splr_tel} 
+		    ,#{splr_mng} 
+		    ,#{splr_hp} 
+		    ,#{splr_zip}
+		    ,#{bkcombo}
+		    ,#{splr_acc}
+		    ,#{splr_add}
+		    ,#{splr_add_dt}
+		    ,#{splr_indst}
+		    ,#{splr_indst_no}
+		    ,#{splr_memo}
+		    ,#{splr_email}
+		    )
+	</insert>
+	
+	<!-- 납품기업 수정 -->
+	<update id="splrupdate">
+	    UPDATE tb_splr
+	    SET splr_name = #{splr_name}   
+		    ,splr_tel = #{splr_tel}   
+		    ,splr_mng = #{splr_mng}
+		    ,splr_hp = #{splr_hp}
+		    ,splr_zip = #{splr_zip}
+		    ,bk_cd = #{bkcombo}
+		    ,splr_acc = #{splr_acc}
+		    ,splr_add = #{splr_add}
+		    ,splr_add_dt = #{splr_add_dt}
+		    ,splr_indst = #{splr_indst}
+		    ,splr_indst_no = #{splr_indst_no}
+		    ,splr_memo = #{splr_memo}
+		    ,splr_email = #{splr_email}      
+	    WHERE splr_no = #{splr_no}  
+	</update>
+	
+	<!-- 납품기업 삭제 -->
+	<delete id="splrdelete">
+	    DELETE FROM tb_splr
+	    WHERE splr_no = #{splr_no}  
+	</delete>
+	
+
+	
+</mapper>
