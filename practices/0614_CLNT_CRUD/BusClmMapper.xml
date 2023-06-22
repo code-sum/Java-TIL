@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.happyjob.study.busClm.dao.BusClmDao">
+
+	<!-- 고객기업 목록 조회 -->
+	<select id="clntlist" resultType="kr.happyjob.study.busClm.model.ClntModel">
+		SELECT cl.clnt_no
+	      ,cl.clnt_name
+	      ,cl.clnt_tel
+	      ,cl.clnt_mng
+	      ,cl.clnt_hp
+	      ,cl.clnt_zip
+	      ,cl.bk_cd
+	      ,dc.detail_name AS bk_name
+	      ,cl.clnt_acc
+	      ,cl.clnt_add
+	      ,cl.clnt_add_dt
+	      ,cl.clnt_indst
+	      ,cl.clnt_indst_no
+	      ,cl.clnt_memo
+	      ,cl.clnt_email
+		  FROM tb_clnt cl
+		       INNER JOIN tb_detail_code dc ON dc.group_code = 'bk_cd' AND dc.detail_code = cl.bk_cd
+	    <where>
+	      <if test="(sname != null) and (!sname.equals(''))">
+	        <choose>
+	          <when test="searchKey eq 'cl_name'.toString()">
+	            and cl.clnt_name Like CONCAT('%', #{sname}, '%')
+	          </when>
+	          <when test="searchKey eq 'cl_indst_no'.toString()">
+	            and cl.clnt_indst_no LIKE CONCAT('%', #{sname}, '%')
+	          </when>
+	          <otherwise>
+	            and ( cl.clnt_name Like CONCAT('%', #{sname}, '%') or cl.clnt_indst_no LIKE CONCAT('%', #{sname}, '%') )
+	          </otherwise>
+	        </choose>
+	      </if>
+	    </where>
+	    ORDER BY cl.clnt_no
+	    LIMIT #{pageindex}, #{pageSize}
+	</select>
+	
+	<!-- 고객기업 목록 조회 -->
+	<select id="countclntlist" resultType="int">
+    	SELECT COUNT(*)
+		  FROM tb_clnt cl
+		       INNER JOIN tb_detail_code dc ON dc.group_code = 'bk_cd' AND dc.detail_code = cl.bk_cd
+		<where>
+	      <if test="(sname != null) and (!sname.equals(''))">
+	        <choose>
+	          <when test="searchKey eq 'cl_name'.toString()">
+	            and cl.clnt_name Like CONCAT('%', #{sname}, '%')
+	          </when>
+	          <when test="searchKey eq 'cl_indst_no'.toString()">
+	            and cl.clnt_indst_no LIKE CONCAT('%', #{sname}, '%')
+	          </when>
+	          <otherwise>
+	            and ( cl.clnt_name Like CONCAT('%', #{sname}, '%') or cl.clnt_indst_no LIKE CONCAT('%', #{sname}, '%') )
+	          </otherwise>
+	        </choose>
+	      </if>
+	    </where>
+  	</select>
+  	
+  	<!-- 고객기업 한건 조회 -->
+  	<select id="clntselectone" resultType="kr.happyjob.study.busClm.model.ClntModel">
+	    SELECT cl.clnt_no
+	      ,cl.clnt_name
+	      ,cl.clnt_tel
+	      ,cl.clnt_mng
+	      ,cl.clnt_hp
+	      ,cl.clnt_zip
+	      ,cl.bk_cd
+	      ,dc.detail_name AS bk_name
+	      ,cl.clnt_acc
+	      ,cl.clnt_add
+	      ,cl.clnt_add_dt
+	      ,cl.clnt_indst
+	      ,cl.clnt_indst_no
+	      ,cl.clnt_memo
+	      ,cl.clnt_email
+		  FROM tb_clnt cl
+		       INNER JOIN tb_detail_code dc ON dc.group_code = 'bk_cd' AND dc.detail_code = cl.bk_cd
+		 WHERE cl.clnt_no =  #{clnt_no}              
+	</select>
+	
+	<!-- 고객기업 등록 -->
+	<insert id="clntinsert">
+	    <selectKey resultType="int" keyProperty="no" order="BEFORE">
+	        SELECT ifnull(max(clnt_no),0) + 1 FROM tb_clnt
+	    </selectKey>   
+	    INSERT INTO tb_clnt
+		    (
+		    clnt_no
+		    ,clnt_name
+		    ,clnt_tel
+		    ,clnt_mng
+		    ,clnt_hp
+		    ,clnt_zip
+		    ,bk_cd
+		    ,clnt_acc
+		    ,clnt_add
+		    ,clnt_add_dt
+		    ,clnt_indst
+		    ,clnt_indst_no
+		    ,clnt_memo
+		    ,clnt_email
+		    )
+		   VALUES (
+		    #{no} 
+		    ,#{clnt_name}
+		    ,#{clnt_tel} 
+		    ,#{clnt_mng} 
+		    ,#{clnt_hp} 
+		    ,#{clnt_zip}
+		    ,#{bkcombo}
+		    ,#{clnt_acc}
+		    ,#{clnt_add}
+		    ,#{clnt_add_dt}
+		    ,#{clnt_indst}
+		    ,#{clnt_indst_no}
+		    ,#{clnt_memo}
+		    ,#{clnt_email}
+		    )
+	</insert>
+	
+	<!-- 고객기업 수정 -->
+	<update id="clntupdate">
+	    UPDATE tb_clnt
+	    SET clnt_name = #{clnt_name}   
+		    ,clnt_tel = #{clnt_tel}   
+		    ,clnt_mng = #{clnt_mng}
+		    ,clnt_hp = #{clnt_hp}
+		    ,clnt_zip = #{clnt_zip}
+		    ,bk_cd = #{bkcombo}
+		    ,clnt_acc = #{clnt_acc}
+		    ,clnt_add = #{clnt_add}
+		    ,clnt_add_dt = #{clnt_add_dt}
+		    ,clnt_indst = #{clnt_indst}
+		    ,clnt_indst_no = #{clnt_indst_no}
+		    ,clnt_memo = #{clnt_memo}
+		    ,clnt_email = #{clnt_email}      
+	    WHERE clnt_no = #{clnt_no}  
+	</update>
+	
+	<!-- 고객기업 삭제 -->
+	<delete id="clntdelete">
+	    DELETE FROM tb_clnt
+	    WHERE clnt_no = #{clnt_no}  
+	</delete>
+	
+
+	
+</mapper>
