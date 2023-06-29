@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.happyjob.study.busSap.dao.BusSapDao">
+
+	<!-- 영업계획 목록 조회 -->
+	<select id="planlist" resultType="kr.happyjob.study.busSap.model.PlanModel">
+		SELECT pl.pln_no
+		      ,pl.loginID
+		      ,DATE_FORMAT(pl.pln_date, '%Y-%m-%d') AS pln_date
+		      ,pd.product_no
+		      ,pd.product_name
+		      ,pl.pln_amt
+		      ,pl.per_amt
+		  FROM tb_planning pl
+		    INNER JOIN tb_product pd ON pl.product_no = pd.product_no
+		 
+		  <where>
+		     <if test="currentuserType != 'A'.toString()">
+		          and pl.loginID = #{currentLoginID}
+		     </if>
+		 </where>
+		 
+	    ORDER BY pln_date DESC
+	    LIMIT #{pageindex}, #{pageSize}
+	</select>
+	
+	
+	<!-- 영업계획 목록 카운트 조회 -->
+	<select id="countplanlist" resultType="int">
+    	SELECT COUNT(*)
+		  FROM tb_planning pl
+		       INNER JOIN tb_product pd ON pl.product_no = pd.product_no
+		       
+		  <where>
+		     <if test="currentuserType != 'A'.toString()">
+		          and pl.loginID = #{currentLoginID}
+		     </if>
+		 </where>
+		 
+  	</select>
+ 
+	
+
+	
+</mapper>
