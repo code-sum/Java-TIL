@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.happyjob.study.busSas.dao.BusSasDao">
+
+	<!-- 영업실적 목록 조회 -->
+	<select id="perflist" resultType="kr.happyjob.study.busSas.model.PerfModel">
+		SELECT pl.pln_no
+		      ,pl.loginID
+		      ,pl.clnt_no
+		      ,(SELECT clnt_name FROM tb_clnt WHERE tb_clnt.clnt_no = pl.clnt_no) AS clnt_name
+		      ,pl.pln_date
+		      ,ll.product_no
+		      ,ll.pro_cd
+		      ,ll.pro_name
+		      ,ll.splr_no
+		      ,ll.splr_name
+		      ,ll.product_name
+		      ,pl.pln_amt
+		      ,pl.per_amt
+		      ,pl.pln_achv
+		      ,pl.pln_memo
+		  FROM (
+		      SELECT pd.product_no
+		            ,pd.product_name
+		            ,pr.pro_cd
+		            ,pr.pro_name
+		            ,sp.splr_no
+		            ,sp.splr_name
+		        FROM tb_product pd
+		          INNER JOIN tb_pro pr ON pd.pro_cd = pr.pro_cd
+		          INNER JOIN tb_splr sp ON pd.splr_no = sp.splr_no
+		        ) ll
+		    INNER JOIN tb_planning pl ON pl.product_no = ll.product_no
+		  <where>
+		  	 <if test="currentuserType == 'D'.toString()">
+		          and pl.loginID = #{currentLoginID}
+		     </if>
+		  	 <if test="searchid != null and searchid != ''">
+		  	 	 and pl.loginID Like CONCAT('%', #{searchid}, '%') 
+		  	 </if>
+			 <if test="searchclicombo != null and searchclicombo != ''">
+				  and pl.clnt_no = #{searchclicombo}
+			 </if>
+ 		     <if test="searchdate != null and searchdate != ''">
+			      and pl.pln_date = #{searchdate}
+			 </if>
+			 <if test="searchptypecombo != null and searchptypecombo != ''">
+				  and ll.product_no = #{searchptypecombo}
+			 </if>
+		  </where>
+	    ORDER BY pln_no DESC
+	    LIMIT #{pageindex}, #{pageSize}
+	</select>
+	
+	
+	<!-- 영업실적 목록 카운트 조회 -->
+	<select id="countperflist" resultType="int">
+    	SELECT COUNT(*)
+		  FROM (
+		      SELECT pd.product_no
+		            ,pd.product_name
+		            ,pr.pro_cd
+		            ,pr.pro_name
+		            ,sp.splr_no
+		            ,sp.splr_name
+		        FROM tb_product pd
+		          INNER JOIN tb_pro pr ON pd.pro_cd = pr.pro_cd
+		          INNER JOIN tb_splr sp ON pd.splr_no = sp.splr_no
+		        ) ll
+		    INNER JOIN tb_planning pl ON pl.product_no = ll.product_no
+		  <where>
+		  	 <if test="currentuserType == 'D'.toString()">
+		          and pl.loginID = #{currentLoginID}
+		     </if>
+		  	 <if test="searchid != null and searchid != ''">
+		  	 	 and pl.loginID Like CONCAT('%', #{searchid}, '%') 
+		  	 </if>
+			 <if test="searchclicombo != null and searchclicombo != ''">
+				  and pl.clnt_no = #{searchclicombo}
+			 </if>
+ 		     <if test="searchdate != null and searchdate != ''">
+			      and pl.pln_date = #{searchdate}
+			 </if>
+			 <if test="searchptypecombo != null and searchptypecombo != ''">
+				  and ll.product_no = #{searchptypecombo}
+			 </if>
+		  </where>
+  	</select>
+ 
+	
+</mapper>
