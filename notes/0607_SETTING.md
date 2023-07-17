@@ -100,11 +100,14 @@ Window – Preferences – Server – Server Runtime Environments 에서 환경�
 
 이클립스 화면 하단에 Servers 탭 클릭하고 기존 서버 파일 다 지움
 
-같은 창에서 마우스 오른쪽 New – Server – 톰캣 8.0 클릭 – Server name 에 newdeal4erp 만 입력하고 Finish
+같은 창에서 마우스 오른쪽 New – Server – 톰캣 8.0 클릭 – Server name 에 newdeal4erp 입력 - Next> 클릭 - Available: 탭에 뜬 newdeal4erp 항목을 오른쪽 Configured: 탭으로 Add> 한 다음 Finish
 
 방금 만든 서버 더블클릭 ~ 상단에 뜬 화면에서 Overview 탭 누르고 Ports 영역에 HTTP/1.1 에 Port Number 8080 인 부분을 80 으로 수정하고 컨트롤 s
 
 Overview 탭 오른쪽 Modules 탭 누르고 Path /www 라고 적혀 있으니, 이 부분 클릭하고 Edit… ~ /www 에서 www 지우고 / 만 남겨서 컨트롤 s
+
+Overview 탭 오른쪽 Modules 탭 누르고 Add External Web Module... 클릭하고 
+- Document Base 에 W:\FileRepository 입력, Path 에 /serverfile 입력하고 OK 클릭 ~ 컨트롤 s
 
 화면 하단에 서버 항목 누르고 마우스 오른쪽 ~ **Clean** **클릭**
 
