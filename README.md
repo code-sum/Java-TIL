@@ -46,3 +46,9 @@
 - [[6/16] 주문관리 SQL Query (READ)](notes/0616_ORDER_READ_SQL.md)
 
 - [[6/19] 주문관리 SQL Query (CREATE)](notes/0619_ORDER_CREATE_SQL.md)
+
+
+
+## 5. 추가 학습
+
+- [eGovFramework | 환경세팅](notes/0812_SETTING.md)
