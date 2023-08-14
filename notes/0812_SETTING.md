@@ -37,9 +37,11 @@
 
 3. 전자정부3.8 -  DB연결(PostgreSQL) 후 데이터 조회
 
-- [참고자료](https://velog.io/@seunghy/%EC%A0%84%EC%9E%90%EC%A0%95%EB%B6%80%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-DB%EC%97%B0%EA%B2%B0Postgresql)
+- [참고자료1](https://blog.naver.com/PostView.naver?blogId=seangje&logNo=221600871079&parentCategoryNo=&categoryNo=18&viewDate=&isShowPopularPosts=true&from=search)
+- [참고자료2](https://velog.io/@seunghy/%EC%A0%84%EC%9E%90%EC%A0%95%EB%B6%80%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-DB%EC%97%B0%EA%B2%B0Postgresql)
+- [템플릿 프로젝트 활용할 때 PostgreSQL 연동하려면, All-in-one 으로 진행해야 함](https://www.egovframe.go.kr/home/qainfo/qainfoRead.do?menuNo=69&qaId=QA_00000000000019258)
 
-
+  
 
 4. 형상관리 환경구축
 
