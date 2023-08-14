@@ -22,6 +22,9 @@
     - [설치 가이드 상세](https://dingbat.tistory.com/11)
     - [설치 이후 환경설정](https://webobj.tistory.com/29) 
 - DBeaver
+- [Windows 에 DBeaver 설치1](https://bskyvision.com/entry/%EC%9C%88%EB%8F%84%EC%9A%B0-PC%EC%97%90-DBeaver-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0)
+- [Windows 에 DBeaver 설치2](https://backendcode.tistory.com/225)
+- [DBeaver 설치 및 PostgreSQL 연동](https://spiritup91.tistory.com/56)
 - PostgreSQL 15 + pgAdmin 4
   - PostgreSQL 설치 시, pgAdmin 함께 설치 됨
 
