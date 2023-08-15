@@ -24,7 +24,7 @@
 - DBeaver
 - [Windows 에 DBeaver 설치](https://bskyvision.com/entry/%EC%9C%88%EB%8F%84%EC%9A%B0-PC%EC%97%90-DBeaver-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0)
 - [DBeaver 설치 및 PostgreSQL 연동](https://spiritup91.tistory.com/56)
-- PostgreSQL 9.4.1208 + pgAdmin
+- PostgreSQL 13 + pgAdmin 4
   - PostgreSQL 설치 시, pgAdmin 함께 설치 됨
   - [Windows 에 PostgreSQL 설치](https://backendcode.tistory.com/225)
 
@@ -50,3 +50,4 @@
 
 - Gitblit : https://ceodanbi.tistory.com/m/149
 
+- Github : https://songacoding.tistory.com/60
