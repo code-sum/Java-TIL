@@ -49,7 +49,11 @@
 4. 형상관리 환경구축
 
 - Git 설치 : https://taewow.tistory.com/13
+
+- Eclipse - Github 연결 : https://mollangpiu.tistory.com/309
+
+- Eclipse - Github 연결과정에서 로그인이 안될 때 : https://joytk.tistory.com/58
+
+- Eclipse - Github 원격저장소에 소스코드 변경사항 Push : https://olsh1108o.tistory.com/entry/Git-%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4%EC%97%90%EC%84%9C-Git-commit%ED%95%98%EA%B8%B0
   
 - Gitblit : https://ceodanbi.tistory.com/m/149
-
-- Github : https://songacoding.tistory.com/60
