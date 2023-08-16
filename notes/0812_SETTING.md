@@ -48,6 +48,8 @@
 
 4. 형상관리 환경구축
 
+- Git 설치 : https://taewow.tistory.com/13
+  
 - Gitblit : https://ceodanbi.tistory.com/m/149
 
 - Github : https://songacoding.tistory.com/60
