@@ -48,14 +48,14 @@
 
 4. 형상관리 환경구축
 
-- Git 설치 : https://taewow.tistory.com/13
+- [Git 설치](https://taewow.tistory.com/13)
 
-- Eclipse - Github 연결 : https://mollangpiu.tistory.com/309
+- [Eclipse - Github 연결](https://mollangpiu.tistory.com/309) 
 
-- Eclipse - Github 연결과정에서 로그인이 안될 때 : https://joytk.tistory.com/58
+- [Eclipse - Github 연결과정에서 로그인 안될 때](https://joytk.tistory.com/58)  
 
-- Eclipse - Github 원격저장소에 소스코드 변경사항 Push : https://olsh1108o.tistory.com/entry/Git-%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4%EC%97%90%EC%84%9C-Git-commit%ED%95%98%EA%B8%B0
+- [Eclipse - Github 원격저장소에 소스코드 변경사항 Push](https://olsh1108o.tistory.com/entry/Git-%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4%EC%97%90%EC%84%9C-Git-commit%ED%95%98%EA%B8%B0)
 
-- Eclipse - Commit 되지 않는 파일들 최근 커밋 시점으로 복구 : https://smartdatastory.tistory.com/entry/%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4-git-%EC%86%8C%EC%8A%A4-%EC%B6%A9%EB%8F%8C-%EC%97%90%EB%9F%AC%EB%A1%9C-%EC%9D%B8%ED%95%B4-pull-%EC%95%88%EB%90%A8-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95
+- [Eclipse - Commit 되지 않는 파일들 최근 커밋 시점으로 복구](https://smartdatastory.tistory.com/entry/%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4-git-%EC%86%8C%EC%8A%A4-%EC%B6%A9%EB%8F%8C-%EC%97%90%EB%9F%AC%EB%A1%9C-%EC%9D%B8%ED%95%B4-pull-%EC%95%88%EB%90%A8-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95)
   
-- Gitblit : https://ceodanbi.tistory.com/m/149
+- [Gitblit](https://ceodanbi.tistory.com/m/149) 
