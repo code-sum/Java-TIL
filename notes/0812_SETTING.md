@@ -6,6 +6,7 @@
 > 2. 전자정부3.8 - 게시판 만들기를 위한 템플릿(all-in-one) 세팅
 > 3. 전자정부3.8 -  DB연결(PostgreSQL) 후 데이터 조회
 > 4. 형상관리 환경구축
+> 5. 기타 설치
 
 
 
@@ -58,4 +59,10 @@
 
 - [Eclipse - Commit 되지 않는 파일들 최근 커밋 시점으로 복구](https://smartdatastory.tistory.com/entry/%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4-git-%EC%86%8C%EC%8A%A4-%EC%B6%A9%EB%8F%8C-%EC%97%90%EB%9F%AC%EB%A1%9C-%EC%9D%B8%ED%95%B4-pull-%EC%95%88%EB%90%A8-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95)
   
-- [Gitblit](https://ceodanbi.tistory.com/m/149) 
+- [Gitblit](https://ceodanbi.tistory.com/m/149)
+
+
+
+5. 기타 설치
+
+- [크롬 원격 데스크톱 가이드](https://funissu.com/google-chrome-remote-desktop/)
