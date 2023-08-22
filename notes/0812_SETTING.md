@@ -6,6 +6,7 @@
 > 2. 전자정부3.8 - 게시판 만들기를 위한 템플릿(all-in-one) 세팅
 > 3. 전자정부3.8 -  DB연결(PostgreSQL) 후 데이터 조회
 > 4. 형상관리 환경구축
+> 5. 기타 설치
 
 
 
@@ -21,6 +22,13 @@
   - [전자정부프레임워크 3.8 설치](https://www.egovframe.go.kr/home/sub.do?menuNo=41)
     - [설치 가이드 상세](https://dingbat.tistory.com/11)
     - [설치 이후 환경설정](https://webobj.tistory.com/29) 
+<<<<<<< HEAD
+=======
+- DBeaver
+- [Windows 에 DBeaver 설치](https://bskyvision.com/entry/%EC%9C%88%EB%8F%84%EC%9A%B0-PC%EC%97%90-DBeaver-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0)
+- [DBeaver 설치 및 PostgreSQL 연동](https://spiritup91.tistory.com/56)
+- [DBeaver 자동 대소문자 변환](https://jin2rang.tistory.com/entry/DBeaver-%EB%8C%80%EB%AC%B8%EC%9E%90-%EB%B3%80%ED%99%98-%EC%9E%90%EB%8F%99-%EB%8C%80%EB%AC%B8%EC%9E%90)
+>>>>>>> a18c98b0d99e0c543e84baf40a370e1d0c266eca
 - PostgreSQL 13 + pgAdmin 4
   - PostgreSQL 설치 시, pgAdmin 함께 설치 됨
   - [Windows 에 PostgreSQL 설치](https://backendcode.tistory.com/225)
@@ -59,4 +67,10 @@
 
 - [Eclipse - Commit 되지 않는 파일들 최근 커밋 시점으로 복구](https://smartdatastory.tistory.com/entry/%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4-git-%EC%86%8C%EC%8A%A4-%EC%B6%A9%EB%8F%8C-%EC%97%90%EB%9F%AC%EB%A1%9C-%EC%9D%B8%ED%95%B4-pull-%EC%95%88%EB%90%A8-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95)
   
-- [Gitblit](https://ceodanbi.tistory.com/m/149) 
+- [Gitblit](https://ceodanbi.tistory.com/m/149)
+
+
+
+5. 기타 설치
+
+- [크롬 원격 데스크톱 가이드](https://funissu.com/google-chrome-remote-desktop/)
