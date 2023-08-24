@@ -104,6 +104,10 @@ Window – Preferences – Server – Server Runtime Environments 에서 환경�
 
 방금 만든 서버 더블클릭 ~ 상단에 뜬 화면에서 Overview 탭 누르고 Ports 영역에 HTTP/1.1 에 Port Number 8080 인 부분을 80 으로 수정하고 저장(ctrl + s)
 
+톰캣의 기본 Port Number 는 80 이므로, 80 인 상태로 저장해서 브라우저에 'localhost' 입력하면 바로 화면 뜸
+
+그러나 Port Number 를 80 이외에 8090 이나, 8888 로 바꾸면 브라우저에 'localhost:8090', 혹은 'localhost:8888' 입력해야 화면 뜸
+
 Overview 탭 오른쪽 Modules 탭 누르고 Path /www 라고 적혀 있으니, 이 부분 클릭하고 Edit… ~ /www 에서 www 지우고 / 만 남겨서 저장(ctrl + s)
 
 Overview 탭 오른쪽 Modules 탭 누르고 Add External Web Module... 클릭하고 
