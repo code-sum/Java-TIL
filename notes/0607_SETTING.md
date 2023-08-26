@@ -119,7 +119,15 @@ Overview 탭 오른쪽 Modules 탭 누르고 Add External Web Module... 클릭�
 
 서버가 정상적으로 Run 되면 Console 탭에 아래와 같은 로그 뜸
 
-(필기 참조)
+```shell
+6월 07, 2023 2:24:37 오후 org.apache.coyote.AbstractProtocol start
+정보: Starting ProtocolHandler ["http-nio-80"]
+6월 07, 2023 2:24:37 오후 org.apache.coyote.AbstractProtocol start
+정보: Starting ProtocolHandler ["ajp-nio-8009"]
+6월 07, 2023 2:24:37 오후 org.apache.catalina.startup.Catalina start
+정보: Server startup in 17996 ms
+2023/06/07 14:25 INFO  (WebSocketMessageBrokerStats.java:113) - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+```
 
 
 
