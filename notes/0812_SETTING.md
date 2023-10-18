@@ -24,14 +24,13 @@
          - [설치 가이드 상세](https://dingbat.tistory.com/11)
          - [설치 이후 환경설정](https://webobj.tistory.com/29) 
      
-
-   - DBeaver
-
-     - [Windows 에 DBeaver 설치](https://bskyvision.com/entry/%EC%9C%88%EB%8F%84%EC%9A%B0-PC%EC%97%90-DBeaver-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0)
-
-     - [DBeaver 설치 및 PostgreSQL 연동](https://spiritup91.tistory.com/56)
-
-     - [DBeaver 자동 대소문자 변환](https://jin2rang.tistory.com/entry/DBeaver-%EB%8C%80%EB%AC%B8%EC%9E%90-%EB%B3%80%ED%99%98-%EC%9E%90%EB%8F%99-%EB%8C%80%EB%AC%B8%EC%9E%90)
+- DBeaver
+   
+  - [Windows 에 DBeaver 설치](https://bskyvision.com/entry/%EC%9C%88%EB%8F%84%EC%9A%B0-PC%EC%97%90-DBeaver-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0)
+   
+  - [DBeaver 설치 및 PostgreSQL 연동](https://spiritup91.tistory.com/56)
+   
+  - [DBeaver 자동 대소문자 변환](https://jin2rang.tistory.com/entry/DBeaver-%EB%8C%80%EB%AC%B8%EC%9E%90-%EB%B3%80%ED%99%98-%EC%9E%90%EB%8F%99-%EB%8C%80%EB%AC%B8%EC%9E%90)
 
 
    - PostgreSQL 13 + pgAdmin 4
@@ -89,11 +88,10 @@
 
 
    - [Eclipse - Github 원격저장소에 소스코드 변경사항 Push](https://olsh1108o.tistory.com/entry/Git-%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4%EC%97%90%EC%84%9C-Git-commit%ED%95%98%EA%B8%B0)
+   - [Eclipse - Github 원격저장소 pull 안될 때](https://d-e-v.tistory.com/5)
 
 
    - [Eclipse - Commit 되지 않는 파일들 최근 커밋 시점으로 복구](https://smartdatastory.tistory.com/entry/%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4-git-%EC%86%8C%EC%8A%A4-%EC%B6%A9%EB%8F%8C-%EC%97%90%EB%9F%AC%EB%A1%9C-%EC%9D%B8%ED%95%B4-pull-%EC%95%88%EB%90%A8-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95)
-     
-
    - [Gitblit](https://ceodanbi.tistory.com/m/149)
 
 
