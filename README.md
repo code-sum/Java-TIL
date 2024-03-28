@@ -41,7 +41,7 @@
 ## 4. ERP Project
 
 - [[6/13] 납품기업 관리 CRUD](notes/0613_SPLR.md)
-- [6/14] 고객기업 관리 CRUD
+- [[6/14] 고객기업 관리 CRUD](notes/0614_CLNT.md)
 - [6/15] 주문관리 화면설계(Figma)
 - [[6/16] 주문관리 SQL Query (READ)](notes/0616_ORDER_READ_SQL.md)
 
